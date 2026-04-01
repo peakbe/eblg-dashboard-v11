@@ -10,18 +10,23 @@
     <!-- Style -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Leaflet JS -->
+    <!-- Leaflet JS (charge une seule fois !) -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <!-- PolylineDecorator -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.polylinedecorator/1.7.0/leaflet.polylineDecorator.min.js"></script>
+
+    <!-- Heatmap plugin (OBLIGATOIRE pour L.heatLayer) -->
+    <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
 </head>
 
 <body>
 
     <div id="app-container">
+
         <!-- SIDEBAR -->
         <div id="sidebar" class="glass sidebar-expanded">
+
             <div id="sidebar-header">
                 <h2>EBLG Dashboard</h2>
                 <button id="sidebar-toggle">☰</button>
@@ -47,6 +52,7 @@
                 <div id="status-panel"></div>
             </div>
 
+            <!-- SONOMÈTRES -->
             <div id="sono-panel" class="glass collapsed">
                 <div id="sono-header">
                     <span>Sonomètres</span>
@@ -70,14 +76,16 @@
         <div id="main">
             <h2>Carte</h2>
             <div id="map"></div>
+
+            <!-- PANNEAU DÉTAIL SONOMÈTRE -->
+            <div id="detail-panel" class="glass hidden">
+                <h3 id="detail-title"></h3>
+                <p><b>Adresse :</b> <span id="detail-address"></span></p>
+                <p><b>Commune :</b> <span id="detail-town"></span></p>
+                <p><b>Statut :</b> <span id="detail-status"></span></p>
+                <p><b>Distance piste :</b> <span id="detail-distance"></span></p>
+            </div>
         </div>
-        <div id="detail-panel" class="glass hidden">
-    <h3 id="detail-title"></h3>
-    <p><b>Adresse :</b> <span id="detail-address"></span></p>
-    <p><b>Commune :</b> <span id="detail-town"></span></p>
-    <p><b>Statut :</b> <span id="detail-status"></span></p>
-    <p><b>Distance piste :</b> <span id="detail-distance"></span></p>
-</div>
 
     </div>
 
